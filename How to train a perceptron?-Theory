@@ -5,3 +5,50 @@ Perceptron Trick:-
 We start with the random values of A,B and C i.e a random line.Perceptron trick says that you need to run a loop(say 1000 times/epochs),each time in the loop you select 
 a random student and ask whether it is on the correct side of not.If the point is on the correct side,then you will not change anything.If any point is classified wrong,
 then you will perform a transformation in A,B and C in such a way that ,that point is classified correctly.
+
+How to identify the positive and negaive regions?(How to label regions?)
+=>Maths of same side or different side of a line. 
+
+Transformation:-(How to move the line?)
+=>2x+3y+5=0
+  the point is (4,5) which is misclassified.
+  (2,3,5) (4,5,1)
+  (2-4,3-5,5-1)=>(-2,-2,4)
+  new line=>(-2x-2y+4=0)
+  
+  
+  the point is (1,3) which is misclassified.
+  (2,3,5) (1,3,1)
+  (2-1,3-3,5-1)=>(1,0,4)
+  new line=>(x+0y+4=0)
+  
+  We dont apply such big transformations in ML at once,instead we use a learning rate(0.01).
+  so,(2-(0.01*4),3-(0.01*5),5-(0.01*1))
+  coeff'=coeff-(learning rate)*(coordinate)
+  
+  Algo:-
+  Decide an epoch value and learning rate.
+  Run a loop say 1000 times.
+  randomly pick a student,
+     if the student is misclassified,
+     update my coeff:-
+       w(new)=w(old)-(learning rate)*X(matrix) 
+                    +
+                    
+       if(x(i)<0 and E(w(i)x(i))>=0) then -
+       if(x(i)>=0 and E(w(i)x(i))<0) then +
+       
+Since there are two conditions,to write the code,it will be a bit difficult,so need for simplification.
+
+for i in 1000
+  w(new)=w(old)+(learning rate)(y(i)-y(i)')x(i)
+  
+  y(i)=> actual value of whether placement happened or not.
+  y(i)'=>predicted value of whether placement happened or not.
+  
+  explanation:-
+     y(i)    y(i)'        y(i)-y(i)'
+     1        1               0
+     0        0               0
+     1        0               1
+     0        1              -1
