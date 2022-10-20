@@ -1,0 +1,7 @@
+How do we train the weights and biases of a perceptron
+In linear regression we use the line y=mx+c whereas in logistic regression we use the standard form of the line Ax+By+C=0
+I need to find the A,B and C which can classify a region into two parts.
+Perceptron Trick:-
+We start with the random values of A,B and C i.e a random line.Perceptron trick says that you need to run a loop(say 1000 times/epochs),each time in the loop you select 
+a random student and ask whether it is on the correct side of not.If the point is on the correct side,then you will not change anything.If any point is classified wrong,
+then you will perform a transformation in A,B and C in such a way that ,that point is classified correctly.
