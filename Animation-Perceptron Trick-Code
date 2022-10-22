@@ -15,7 +15,8 @@ def perceptron(x,y):
         b.append(-(weights[0]/weights[2]))
         
   returrn m,b
-  
+ 
+ 
   m,b=perceptron(x,y)
   
   %matplotlib notebook
@@ -31,4 +32,8 @@ def perceptron(x,y):
   plt.ylim(-3,3)
   def update(i):
      label='epoch{0}'.format(i+1)
-     line
+     line.set_ydata(x_i*m[i]+b[i])
+     ax.set_xlabel(label)
+     
+  anim=FuncAnimation(fig,update,repeat=True,frames=200,interval=100)
+     
